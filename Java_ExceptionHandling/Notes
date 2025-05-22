@@ -1,0 +1,202 @@
+### **What is Exception Handling in Java?**
+
+Exception handling in Java is a powerful mechanism that allows a program to handle **runtime errors** (exceptions) in a graceful way. Instead of allowing the program to crash, Java provides a way to handle errors and exceptions and continue execution, if possible.
+
+
+### **Types of Exceptions in Java**
+
+1. **Checked Exceptions**:
+
+   * These are exceptions that are checked **at compile-time**.
+   * The compiler requires that these exceptions be either handled or declared in the method signature.
+   * Example: `IOException`, `SQLException`, `ClassNotFoundException`.
+
+2. **Unchecked Exceptions** (Runtime Exceptions):
+
+   * These are exceptions that occur **at runtime**.
+   * The compiler does not require handling or declaring them.
+   * Example: `NullPointerException`, `ArrayIndexOutOfBoundsException`, `ArithmeticException`.
+
+3. **Errors**:
+
+   * These are typically severe problems that cannot be recovered from.
+   * Errors are **not exceptions** and are usually related to JVM (e.g., `OutOfMemoryError`, `StackOverflowError`).
+
+---
+
+### **Keywords in Exception Handling**
+
+1. **`try`**:
+
+   * Used to define a block of code that will be tested for exceptions while it’s being executed.
+
+2. **`catch`**:
+
+   * Used to define a block of code, known as the **catch block**, that handles exceptions.
+
+3. **`finally`**:
+
+   * Defines a block of code that will always execute, regardless of whether an exception occurs or not.
+   * Often used to release resources (e.g., closing a file, releasing database connections).
+
+4. **`throw`**:
+
+   * Used to explicitly throw an exception manually in a method.
+
+5. **`throws`**:
+
+   * Used in method signatures to declare that a method might throw one or more exceptions, and the caller must handle or declare them.
+
+---
+
+### **Exception Handling Syntax**
+
+```java
+try {
+    // Code that may throw an exception
+} catch (ExceptionType1 e) {
+    // Handle specific exception
+} catch (ExceptionType2 e) {
+    // Handle another type of exception
+} finally {
+    // Code that always executes (e.g., closing resources)
+}
+```
+
+---
+
+### **Example of Java Exception Handling**
+
+```java
+import java.io.*;
+
+public class Example {
+    public static void main(String[] args) {
+        try {
+            // Code that may throw an exception
+            int result = 10 / 0; // ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero.");
+        } finally {
+            System.out.println("This will always execute.");
+        }
+    }
+}
+```
+
+---
+
+### **Custom Exception in Java**
+
+In Java, you can define your own exceptions by extending the `Exception` class (for checked exceptions) or `RuntimeException` class (for unchecked exceptions).
+
+#### Example of Custom Checked Exception:
+
+```java
+class InsufficientFundsException extends Exception {
+    public InsufficientFundsException(String message) {
+        super(message);
+    }
+}
+
+public class BankAccount {
+    private double balance;
+
+    public BankAccount(double initialBalance) {
+        balance = initialBalance;
+    }
+
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if (amount > balance) {
+            throw new InsufficientFundsException("Insufficient funds in your account.");
+        }
+        balance -= amount;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            BankAccount account = new BankAccount(100);
+            account.withdraw(200); // Will throw InsufficientFundsException
+        } catch (InsufficientFundsException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+```
+
+---
+
+### **Common Built-in Exceptions in Java**
+
+| Exception                        | Description                                                                 |
+| -------------------------------- | --------------------------------------------------------------------------- |
+| `ArithmeticException`            | Thrown when an arithmetic error occurs (e.g., dividing by zero).            |
+| `NullPointerException`           | Thrown when an application tries to use `null` where an object is required. |
+| `ArrayIndexOutOfBoundsException` | Thrown when an array is accessed with an illegal index.                     |
+| `FileNotFoundException`          | Thrown when an attempt to open a file fails.                                |
+| `IOException`                    | Thrown when an I/O operation fails (e.g., reading/writing a file).          |
+| `SQLException`                   | Thrown when there is an error with SQL operations.                          |
+
+---
+
+### **Java Exception Hierarchy**
+
+The Java Exception hierarchy is built around the base class `Throwable`, which has two main subclasses:
+
+1. **`Error`**: Represents serious problems (e.g., `OutOfMemoryError`).
+2. **`Exception`**: The parent class for all exceptions.
+
+   * **Checked Exceptions**: Subclass of `Exception`, these need to be explicitly handled or declared.
+   * **RuntimeException**: A subclass of `Exception` for **unchecked exceptions** (e.g., `NullPointerException`, `ArrayIndexOutOfBoundsException`).
+
+---
+
+### **`throws` vs `throw`**
+
+* **`throw`**:
+
+  * Used inside a method to explicitly throw an exception.
+  * Example:
+
+    ```java
+    if (x < 0) {
+        throw new IllegalArgumentException("Negative number not allowed.");
+    }
+    ```
+
+* **`throws`**:
+
+  * Used in a method signature to declare that the method may throw one or more exceptions.
+  * Example:
+
+    ```java
+    public void myMethod() throws IOException, SQLException {
+        // Code that may throw exceptions
+    }
+    ```
+
+---
+
+### **Best Practices in Exception Handling**
+
+1. **Handle specific exceptions**: Catch exceptions as specifically as possible, and avoid generic `Exception` catches.
+2. **Avoid empty catch blocks**: Always handle or log exceptions; don’t leave catch blocks empty.
+3. **Don’t use exceptions for control flow**: Exceptions should only be used for handling actual error conditions, not for normal program flow.
+4. **Use `finally` for cleanup**: Ensure resource cleanup (e.g., closing files, database connections) in the `finally` block.
+
+---
+
+### **Summary of Java Exception Handling**
+
+| Feature                  | Description                                                                                                    |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| **`try-catch`**          | Used to handle exceptions in code.                                                                             |
+| **`finally`**            | Always executed, useful for cleanup (e.g., closing resources).                                                 |
+| **`throw`**              | Used to explicitly throw an exception.                                                                         |
+| **`throws`**             | Declares exceptions that a method may throw.                                                                   |
+| **Checked Exceptions**   | Exceptions that must be handled or declared (`IOException`, `SQLException`).                                   |
+| **Unchecked Exceptions** | Exceptions that occur at runtime and don't need to be handled (`NullPointerException`, `ArithmeticException`). |
+
+

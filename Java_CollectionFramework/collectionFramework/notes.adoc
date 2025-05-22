@@ -1,0 +1,19 @@
+image::image-2025-05-18-05-06-47-523.png[]
+
+Java_CollectionFramework.collectionFramework.Lists -Interface
+The Java_CollectionFramework.collectionFramework.Lists interface is implemented by several classes in the java
+collection framework, such as Java_CollectionFramework.collectionFramework.Lists.ArrayLists, Java_CollectionFramework.collectionFramework.Lists.ArrayLists.ArrayLists.LinkedList, Java_CollectionFramework.collectionFramework.Lists.Vector and Java_CollectionFramework.collectionFramework.Lists.Stack.
+Features:
+1. Order Preservation
+2. Indexed Based Access
+3. Allows Duplicates
+
+1. Java_CollectionFramework.collectionFramework.Lists.ArrayLists : is a resizable array implementation of the Java_CollectionFramework.collectionFramework.Lists Interface.
+
+image::image-2025-05-18-15-10-29-792.png[]
+
+
+COMPARATOR(INTERFACE)
+1. CUSTOM ORDERING -->
+
+image::image-2025-05-18-22-54-57-589.png[]

@@ -1,0 +1,52 @@
+What is a Thread in Java?
+In Java, a thread is the smallest unit of execution within a program. It represents an independent path of execution that runs concurrently with other threads inside the same program.
+
+💻 Process
+A process is an independent program that is running on your computer.
+Each process has:
+Its own memory
+Its own resources (like files, variables)
+Its own execution path
+
+👉 Think of a process like a separate app — for example, when you open Chrome and MS Word, each one runs in its own process.
+
+🧵 Thread
+A thread is a smaller task inside a process.
+All threads in a process:
+Share the same memory
+Can run at the same time
+Are lightweight and faster to create
+
+🧵 Single-threaded Program
+Executes one task at a time.
+Only one thread (main thread) runs from start to finish.
+All operations happen one after the other — no parallel execution.
+🧠 Example:
+A program that reads a file, then prints its content, and only after that allows user input.
+🧊 Limitation:
+If one task takes time (like downloading a file), the entire program waits.
+
+🔀 Multi-threaded Program
+Executes multiple tasks at the same time using multiple threads.
+Threads share the same memory and run concurrently.
+Makes programs faster, more responsive, especially for tasks like animation, file I/O, networking.
+🧠 Example:
+A game where one thread handles player movement, another handles music, and another handles enemy AI — all running at the same time.
+🚀 Advantage:
+Improves performance and responsiveness of programs.
+
+✅ Benefits of Multithreading
+Benefit	Description
+⚡ Improved Performance	Tasks run in parallel, reducing overall execution time.
+🧠 Better Resource Utilization	Makes better use of CPU cores (especially multi-core systems).
+🖱️ Improved Responsiveness	UI stays responsive while background tasks (e.g., downloading, processing) continue.
+🔄 Efficient Waiting	While one thread waits (e.g., for I/O), others can do useful work.
+🔁 Simplifies Modeling Concurrent Tasks	Helps simulate real-world scenarios like multiple users or tasks happening simultaneously.
+
+❌ Drawbacks of Multithreading
+Drawback	Description
+⚠️ Complex to Design and Debug	Synchronizing threads to avoid conflicts (race conditions, deadlocks) is tricky.
+🔄 Overhead of Context Switching	Frequent switching between threads can reduce performance if too many threads run.
+🧩 Shared Resource Issues	Threads share memory — if not handled properly, it can lead to data inconsistency.
+🔒 Deadlocks and Race Conditions	Poor synchronization can cause threads to wait forever (deadlock) or corrupt data (race condition).
+📊 Not Always Faster	For small tasks or on single-core CPUs, it may not improve speed and can even slow things dow
