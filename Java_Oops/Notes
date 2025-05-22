@@ -1,0 +1,49 @@
+Static : Static keyword is primarily used for memory managment
+✅ Use Cases of static in Java:
+Usage	Description
+static variable	Shared across all instances of the class. Memory is allocated only once.
+static method	Can be called without creating an object. It can access only static members.
+static block	Used for static initialization of a class. Runs once when the class is loaded.
+static class	Inner class can be made static. Doesn’t need reference to the outer class.
+
+# The main concept behind static is that it belong to the class rather than instance of  the class
+#Non-static members are accessed through objects, while static members are accessed through the class name.
+=> Always access static members using the class name to clearly indicate they are class-level.
+Non-static methods belong to an instance (object) of the class
+
+❌Static methods belong to the class itself, not to any specific object.
+🔍 So What Happens?
+If you try to call a non-static method inside a static method (like main()), Java will throw a compile-time error,
+
+# THIS AND SUPER CANNOT BE USED IN STATIC CONTEXT
+🔹 Why?
+Because:
+
+**this** refers to the current object of a class.
+
+**super** refers to the parent class's instance (used to access parent methods/constructors).
+
+But…
+
+Static context means no object exists. So there's no this or super to refer to.
+
+=>Static is initialized before any object is created.
+✅ Why?
+Because static members belong to the class itself, not to any object.
+
+So when the class is loaded into memory (even before you create any object), all static variables and static blocks are initialized.
+
+🔁 Execution Order in Java:
+1. Static variables and static blocks (executed once when the class is loaded).
+
+2. Then, main() method (also static) runs.
+static block use for initillizing static variables;
+
+3. Only after that, if you create an object:
+
+Instance variables
+
+Instance blocks
+
+Constructor
+

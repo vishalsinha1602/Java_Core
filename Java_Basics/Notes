@@ -1,0 +1,79 @@
+
+### **JDK, JRE, JVM**
+
+1. **JDK (Java Development Kit)**:
+
+   * A software development kit used to develop Java applications.
+   * Includes the JRE, compilers (like `javac`), and other tools like debuggers.
+
+2. **JRE (Java Runtime Environment)**:
+
+   * Provides libraries, Java Virtual Machine (JVM), and other components to run Java programs.
+   * Does not include development tools like compilers.
+
+3. **JVM (Java Virtual Machine)**:
+
+   * The engine that runs Java bytecode.
+   * Platform-dependent (varies between OS), but Java bytecode is platform-independent.
+   * Handles memory management, garbage collection, and execution of bytecode.
+
+---
+
+### **Compilation and Execution**
+
+* **Compilation**:
+
+  * `javac filename.java` compiles the Java source code (`.java`) into bytecode (`.class`).
+  * The `.class` file contains platform-independent bytecode.
+
+* **Execution**:
+
+  * `java filename` runs the Java program by invoking the JVM, which interprets or compiles the bytecode into platform-dependent machine code.
+
+---
+
+### **Java Program Skeleton (Expanded)**
+
+```java
+class Test {
+    public static void main(String[] args) {
+        // Entry point of the Java program
+        System.out.println("Hello World");
+    }
+}
+```
+
+1. **`public`**:
+
+   * Access modifier. Allows the `main()` method to be called outside the class.
+   * Public means accessible from anywhere.
+
+2. **`static`**:
+
+   * Indicates that the method belongs to the class itself, rather than an instance of the class.
+   * This allows you to call `Test.main()` without creating an object of `Test`.
+
+3. **`void`**:
+
+   * Specifies that the `main()` method does not return a value.
+
+4. **`main()`**:
+
+   * The entry point of the Java program, the first method executed when the program starts.
+
+5. **`String[] args`**:
+
+   * An array that holds command-line arguments passed to the Java program when it is executed.
+
+---
+
+### **Additional Notes**
+
+* **Case Sensitivity**: Java is case-sensitive, so `Main`, `main`, and `MAIN` would be treated as different identifiers.
+
+* **Class and Object**: Java is an object-oriented language, so everything happens within classes and objects.
+
+  * **Class**: A blueprint or template for creating objects.
+  * **Object**: An instance of a class.
+
+* **Method Call**: The `main()` method can be called by the JVM when the program is executed. Other methods can be invoked using the object of the class or statically.
