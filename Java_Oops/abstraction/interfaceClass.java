@@ -8,7 +8,7 @@ package Java_Oops.abstraction;
 
 interface Car{
 
-    //? by default interface ke ander sare method public  and abstract hote hai 
+    //? by default interface ke ander sare method public  and abstract hote hai (public static final)
 
     //! true abstraction 
     void start();
